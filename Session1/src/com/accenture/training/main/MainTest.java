@@ -33,7 +33,7 @@ public class MainTest {
 		System.out.println(testInterface.show());
 		//=========================
 		SubTest myTest = new SubTest(5);
-		myTest.increase(null);
+		myTest.increase(4);
 	}
 	
 	public static TestInterface createTestInterface(){
