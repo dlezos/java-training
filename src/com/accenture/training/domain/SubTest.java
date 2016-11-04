@@ -15,7 +15,7 @@ public class SubTest extends Test implements TestInterface {
 	//@Override
 	public void increase(int i){
 		System.out.println("SubTest.increase()");
-		value = value+(i*2);
+		value = value+(i*4);
 	}
 	
 	public void decrease(){
