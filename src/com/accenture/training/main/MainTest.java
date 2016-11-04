@@ -34,6 +34,9 @@ public class MainTest {
 		//=========================
 		SubTest myTest = new SubTest(5);
 		myTest.increase(null);
+		//Test, 1, 2, git
+		System.out.println("Test, 1, 2, ...");
+		
 	}
 	
 	public static TestInterface createTestInterface(){
