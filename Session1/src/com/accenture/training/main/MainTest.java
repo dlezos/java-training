@@ -32,7 +32,7 @@ public class MainTest {
 		testInterface.multiplyByTwo();
 		System.out.println(testInterface.show());
 		//=========================
-		SubTest myTest = new SubTest(5);
+		SubTest myTest = new SubTest(15);
 		myTest.increase(null);
 	}
 	
