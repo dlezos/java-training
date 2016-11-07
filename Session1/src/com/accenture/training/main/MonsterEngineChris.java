@@ -61,17 +61,17 @@ public class MonsterEngineChris implements TheMonster {
 		for(int i=0; i<100; i++){
 			//questions.add(new Question("Question "+i, new Answers("answerA", "answerB", "answerC", "answerD"), Difficulty.EASY, 1));
 			questions.add(new Question("Which disease devastated livestock across the UK during 2001?"
-			          +i, new Answers("Hand-and-foot", "Foot-in-mouth", "Hand-to-mouth", "Foot-and-mouth"), Difficulty.EASY, 4));
+			            , new Answers("Hand-and-foot", "Foot-in-mouth", "Hand-to-mouth", "Foot-and-mouth"), Difficulty.EASY, 4));
 			questions.add(new Question("Which of these kills its victims by constriction?"
-		              +i, new Answers("Andalucia", "Anaconda", "Andypandy", "Annerobinson"), Difficulty.EASY, 2));
+		                , new Answers("Andalucia", "Anaconda", "Andypandy", "Annerobinson"), Difficulty.EASY, 2));
 			questions.add(new Question("Which of these might be used in underwater naval operations?"
-		              +i, new Answers("Frogmen", "Newtmen", "Toadmen", "Tadpolemen"), Difficulty.EASY, 1));
+		                , new Answers("Frogmen", "Newtmen", "Toadmen", "Tadpolemen"), Difficulty.EASY, 1));
 			questions.add(new Question("In the UK, VAT stands for value-added ...?"
-		              +i, new Answers("Transaction", "Total", "Tax", "Trauma"), Difficulty.EASY, 3));
+		                , new Answers("Transaction", "Total", "Tax", "Trauma"), Difficulty.EASY, 3));
 			questions.add(new Question("What are you said to do to a habit when you break it?"
-		              +i, new Answers("Throw it", "Punch it", "Kick it", "Eat it"), Difficulty.EASY, 3));
+		                , new Answers("Throw it", "Punch it", "Kick it", "Eat it"), Difficulty.EASY, 3));
 			questions.add(new Question("Where do you proverbially wear your heart, if you show your true feelings?"
-		              +i, new Answers("On your collar", "On your lapel", "On your cuff", "On your sleeve"), Difficulty.EASY, 4));
+		                , new Answers("On your collar", "On your lapel", "On your cuff", "On your sleeve"), Difficulty.EASY, 4));
 		}
 		return true;
 	}
