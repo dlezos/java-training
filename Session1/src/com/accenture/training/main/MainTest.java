@@ -1,5 +1,9 @@
 package com.accenture.training.main;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -33,7 +37,7 @@ public class MainTest {
 		readQuestions();
 	}
 	
-	public static void readQuestions(){
+	public static void readQuestionsStreams(){
 		//read file into stream, try-with-resources
 		try{
 			Object[] lines = (Object[]) Files.lines(Paths.get(/*"C:\\Users\\dimitrios.lezos\\OneDrive - Accenture\\Documents\\tmp\\java-training\\Session1\\*/"Questions.txt")).toArray();
@@ -54,4 +58,27 @@ public class MainTest {
 		
 	}
 	
+	public static void readQuestions(){
+		//read file into stream, try-with-resources
+		try{
+			File file = new File("Questions.txt");
+			FileInputStream is = new FileInputStream(file);
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			while(reader.ready()){
+				Question q = new Question(reader.readLine(), 
+						new Answers(reader.readLine(),
+								reader.readLine(),
+								reader.readLine(),
+								reader.readLine()),
+						Difficulty.EASY, 
+						Integer.parseInt(reader.readLine()));
+				System.out.println(q);
+			}
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
