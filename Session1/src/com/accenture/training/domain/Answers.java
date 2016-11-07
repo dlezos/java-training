@@ -1,47 +1,47 @@
 package com.accenture.training.domain;
 
 public class Answers {
-	public String AnswerA="";
-	public String AnswerB="";
-	public String AnswerC="";
-	public String AnswerD="";
+	public String answerA="";
+	public String answerB="";
+	public String answerC="";
+	public String answerD="";
 
-	
-	
-	public String getAnswerA( String AnswerA) {
-		return AnswerA;
-	}
-
-	public void setAnswerA(String AnswerA) {
-		this.AnswerA = AnswerA;
+	public Answers(String answerA, String answerB, String answerC, String answerD){
+		this.answerA = answerA;
+		this.answerB = answerB;
+		this.answerC = answerC;
+		this.answerD = answerD;
 	}
 	
-	public String getAnswerB( String AnswerB) {
-		return AnswerB;
+	public String getAnswerA( String answerA) {
+		return answerA;
 	}
 
-	public void setAnswerB(String AnswerB) {
-		this.AnswerB = AnswerB;
-	}
-	public String getAnswerC( String AnswerC) {
-		return AnswerC;
-	}
-
-	public void setAnswerC(String AnswerC) {
-		this.AnswerC = AnswerC;
-	}
-	public String getAnswerD( String AnswerD) {
-		return AnswerD;
-	}
-
-	public void setAnswerD(String AnswerD) {
-		this.AnswerD = AnswerD;
+	public void setAnswerA(String answerA) {
+		this.answerA = answerA;
 	}
 	
-	public static void main(String[] args) {
-		
+	public String getAnswerB( String answerB) {
+		return answerB;
 	}
-	
+
+	public void setAnswerB(String answerB) {
+		this.answerB = answerB;
+	}
+	public String getAnswerC( String answerC) {
+		return answerC;
+	}
+
+	public void setAnswerC(String answerC) {
+		this.answerC = answerC;
+	}
+	public String getAnswerD( String answerD) {
+		return answerD;
+	}
+
+	public void setAnswerD(String answerD) {
+		this.answerD = answerD;
+	}
 	
 }
 
