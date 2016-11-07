@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.accenture.training;
+package com.accenture.training.interfaces;
+
+import com.accenture.training.domain.Assists;
 
 /**
  *
@@ -19,29 +21,24 @@ public interface TheMonster {
     
     String registerUser(String userName, String passWord);
     
-    int loginUser(String userName, String passWord);
+    Boolean loginUser(String userName, String passWord);
     
-    int resetPassword (String userName, String oldPassword, String newPassword);
+    Boolean resetPassword (String userName, String oldPassword, String newPassword);
     
-    int resetQuestions();
+    void resetQuestions();
     
-    int resetScore(int score, boolean reset);
+    Integer resetScore(int score, boolean reset);
     
-    int initiallizeGame(String playerName);
+    void startGame(String playerName);
     
     int startGame(int score, String playerName, int numberOfAssist, boolean hasAssist);
     
     int endGame(int score, String playerName, int numberOfAssist, boolean hasAssist);
     
-    int selectQuestion(int No_QUESTIONS, String questionCategory, String question, int scoreOfQuestion, int questionNumber);    
+    int selectQuestion(int noQuestions, String questionCategory, String question, int scoreOfQuestion, int questionNumber);    
     
-    int displayAssistance(int No_ASSISTS, int currentNoOfAssist, boolean hasAssist, enum assistType);
+    int displayAssistance(int noAssists, int currentNoOfAssist, boolean hasAssist, Assists assistType);
     
     int calculateScore(int currentScore, int questionNumber );
-    
-    
-    
-    
-    
 
 }
