@@ -47,8 +47,7 @@ public class Answers {
 	
 	@Override
 	public String toString() {
-		return "Answers [answerA=" + answerA + ", answerB=" + answerB + ", answerC=" + answerC + ", answerD=" + answerD
-				+ "]";
+		return "\nA=" + answerA + "\nB=" + answerB + "\nC=" + answerC + "\nD=" + answerD + "\n";
 	}
 }
 

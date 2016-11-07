@@ -11,7 +11,7 @@ public class MainTestChristos {
 		int answer = 1;
 		try {
 			do {
-				System.out.println(game.getCurrentQuestion().toString()+" Earnings: "+game.prize);
+				System.out.println(game.getCurrentQuestion().toString()+"Earnings: "+game.prize.getValue()+"\n");
 				//Get Input from user
 			} while(engine.giveAnswer(game, game.getCurrentQuestion().getCorrectAnswer()));
 		} catch(IndexOutOfBoundsException e) {

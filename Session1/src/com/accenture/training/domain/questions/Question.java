@@ -52,7 +52,7 @@ public class Question implements com.accenture.training.interfaces.Question {
 	public String toString() {
 //		return "Question [answers=" + answers + ", difficulty=" + difficulty + ", question=" + question
 //				+ ", correctAnswer=" + correctAnswer + "]";
-		return "Question: " + question + "\nAnswers=" + answers;
+		return "Question: " + question + "\nAnswers:" + answers;
 	}
 	
 }
