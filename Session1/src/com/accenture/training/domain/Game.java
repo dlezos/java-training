@@ -56,7 +56,11 @@ public class Game {
 	}
 	
 	public void correctAnswer(){
+		if(currentQuestion >= 9){
+			this.prize = Prize.step200000;
+			throw new RuntimeException("You won!");
+		}
 		this.currentQuestion++;
-		//this.prize = Prize.
+		this.prize = Prize.getPrize(prize.getStep()+1);
 	}
 }

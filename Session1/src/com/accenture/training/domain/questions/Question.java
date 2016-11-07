@@ -4,19 +4,17 @@ import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Difficulty;
 
 public class Question implements com.accenture.training.interfaces.Question {
-	private Answers mAnswer1;
-	private Answers mAnswer2;
-	private Answers mAnswer3;
-	private Answers mAnswer4;
+
+	private Answers answers;
 	private Difficulty difficulty;
 	private String question;
-	private int correctAnswer;
+	private Integer correctAnswer;
 	
 	public int getCorrectAnswer() {
 		return correctAnswer;
 	}
 
-	public void setCorrectAnswer(int correctAnswer) {
+	public void setCorrectAnswer(Integer correctAnswer) {
 		this.correctAnswer = correctAnswer;
 	}
 
@@ -28,46 +26,32 @@ public class Question implements com.accenture.training.interfaces.Question {
 		this.difficulty = difficulty;
 	}
 
-	public Question(Answers ans1, Answers ans2, Answers ans3, Answers ans4) {
-		this.mAnswer1 = ans1;
-		this.mAnswer2 = ans2;
-		this.mAnswer3 = ans3;
-		this.mAnswer4 = ans4;
-	}
-
-	@Override
-	public Answers getAnswerA() {
-		return mAnswer1;
-	}
-
-	@Override
-	public Answers getAnswerB() {
-		return mAnswer2;
-	}
-
-	@Override
-	public Answers getAnswerC() {
-		return mAnswer3;
-	}
-
-	@Override
-	public Answers getAnswerD() {
-		return mAnswer4;
+	public Question(String question, Answers answers, Difficulty difficulty, Integer correctAnswer) {
+		this.question = question;
+		this.answers = answers;
+		this.difficulty = difficulty;
+		this.correctAnswer = correctAnswer;
 	}
 
 	@Override
 	public String getQuestion() {
 		return question;
 	}
-	
-	public void setQuestion(String question){
-		this.question = question;
+
+	@Override
+	public Answers getAnswers() {
+		return answers;
 	}
 
 	@Override
-	public boolean isAnswerCorrect(Answers givenAnswer) {
+	public boolean isAnswerCorrect(Integer answer) {
 		// TODO Auto-generated method stub
-		return false;
+		return correctAnswer == answer;
+	}
+	@Override
+	public String toString() {
+		return "Question [answers=" + answers + ", difficulty=" + difficulty + ", question=" + question
+				+ ", correctAnswer=" + correctAnswer + "]";
 	}
 	
 }

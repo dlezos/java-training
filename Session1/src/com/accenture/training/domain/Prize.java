@@ -28,4 +28,12 @@ public enum Prize {
 		this.value = value;
 	}
 	
+	static public Prize getPrize(int step){
+		for(Prize prize: Prize.values()){
+			if(prize.step == step){
+				return prize;
+			}
+		}
+		return Prize.step0;
+	}
 }
