@@ -20,7 +20,7 @@ public class MonsterEngine implements TheMonster {
 	public String username;
 	public String password;
 	
-	private List<Question> questions; 
+	protected List<Question> questions; 
 	
 	public String registerUser(String userName, String passWord) {
 		this.username = userName;
@@ -33,9 +33,9 @@ public class MonsterEngine implements TheMonster {
 	public Game startGame(String playerName) {
 		Player player = new Player(playerName, "Doe");
 		List<Question> questions = new ArrayList<Question>(10);
-		for(int i=0; i<10; i++){
+		/*for(int i=0; i<10; i++){
 			questions.add(this.questions.get(i));
-		}
+		}*/
 		return new Game(player, questions);
 	}
 	
