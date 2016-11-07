@@ -50,8 +50,9 @@ public class Question implements com.accenture.training.interfaces.Question {
 	}
 	@Override
 	public String toString() {
-		return "Question [answers=" + answers + ", difficulty=" + difficulty + ", question=" + question
-				+ ", correctAnswer=" + correctAnswer + "]";
+//		return "Question [answers=" + answers + ", difficulty=" + difficulty + ", question=" + question
+//				+ ", correctAnswer=" + correctAnswer + "]";
+		return "Question: " + question + "\nAnswers=" + answers;
 	}
 	
 }
