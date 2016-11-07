@@ -1,10 +1,15 @@
 package com.accenture.training.main;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Assists;
+import com.accenture.training.domain.Difficulty;
 import com.accenture.training.domain.Game;
 import com.accenture.training.domain.Player;
 import com.accenture.training.domain.Prize;
@@ -29,7 +34,6 @@ public class MonsterEngine implements TheMonster {
 		Player player = new Player(playerName, "Doe");
 		List<Question> questions = new ArrayList<Question>(10);
 		for(int i=0; i<10; i++){
-			int ii=0;
 			questions.add(this.questions.get(i));
 		}
 		return new Game(player, questions);
@@ -50,6 +54,52 @@ public class MonsterEngine implements TheMonster {
 		}
 	}
 
+	public boolean loadQuestions(){
+		if(questions == null){
+			questions = new ArrayList<Question>(100);
+		}
+		for(int i=0; i<100; i++){
+			questions.add(new Question("Question "+i, new Answers("answerA", "answerB", "answerC", "answerD"), Difficulty.EASY, 1));
+		}
+		return true;
+	}
+	
+	public boolean storeQuestions(String fileName){
+		FileOutputStream os = null;
+		ObjectOutputStream oos = null;
+		try {
+			os = new FileOutputStream(fileName);
+			oos = new ObjectOutputStream(os);
+			oos.writeObject(new Integer(questions.size()));
+			for(Question question: questions){
+				oos.writeObject(question);
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(oos != null) {
+					oos.close();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			try {
+				if(os != null) {
+					os.close();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		return true;		
+	}
 	@Override
 	public Boolean loginUser(String userName, String passWord) {
 		// TODO Auto-generated method stub

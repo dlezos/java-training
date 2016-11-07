@@ -40,6 +40,11 @@ public class Game {
 	}
 	
 	public void generateQuestions(){
+		questions.add(new Question("Question 1: Which 1957 Treaty created the European Economic Community? ", new Answers("Brussels", "Madrid", "Paris", "Rome"), Difficulty.MEDIUM, 4));
+		questions.add(new Question("Question 2 Which dinosaur's name means 'roof lizard'?", new Answers("Pteradactyl", "Stegosaurus", "Triceratops", "Tyrannosaurus"), Difficulty.HARD, 2));
+		questions.add(new Question("Question 3 Blue Mountain Coffee comes from where?'?", new Answers("Colombia", "Costa Rica", "", ""), Difficulty.HARD, 2));
+		questions.add(new Question("Question 4 What is the largest island in the Mediterranean Sea?'?", new Answers("Corsica", "Cyprus", "Majorca", "Sicily"), Difficulty.HARD, 4));
+
 	}
 
 	public void printAllQuestions(){
@@ -56,7 +61,11 @@ public class Game {
 	}
 	
 	public void correctAnswer(){
+		if(currentQuestion >= 9){
+			this.prize = Prize.step200000;
+			throw new RuntimeException("You won!");
+		}
 		this.currentQuestion++;
-		//this.prize = Prize.
+		this.prize = Prize.getPrize(prize.getStep()+1);
 	}
 }
