@@ -1,10 +1,13 @@
-package com.accenture.training;
+package com.accenture.training.test;
+
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class TestOne {
+import junit.framework.TestCase;
+
+public class TestOne extends TestCase{
 
 	@Test
 	public void test() {

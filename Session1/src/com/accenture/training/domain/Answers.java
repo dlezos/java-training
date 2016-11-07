@@ -42,6 +42,12 @@ public class Answers {
 	public void setAnswerD(String answerD) {
 		this.answerD = answerD;
 	}
+
+	@Override
+	public String toString() {
+		return "Answers [answerA=" + answerA + ", answerB=" + answerB + ",n answerC=" + answerC + ", answerD=" + answerD
+				+ "]";
+	}
 	
 }
 
