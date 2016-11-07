@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
@@ -34,13 +36,19 @@ public class MainTest {
 //			System.out.println("Finally...");
 //		}
 //		System.out.println("Your earnings are: "+game.prize.getValue());
-		readQuestions();
+		readQuestionsStreams();
+		System.out.println("End!");
 	}
 	
 	public static void readQuestionsStreams(){
 		//read file into stream, try-with-resources
 		try{
-			Object[] lines = (Object[]) Files.lines(Paths.get(/*"C:\\Users\\dimitrios.lezos\\OneDrive - Accenture\\Documents\\tmp\\java-training\\Session1\\*/"Questions.txt")).toArray();
+			//Stream stream = Files.lines(Paths.get("Questions.txt"));
+			//stream.forEach(s -> System.out.println(s));
+			//stream.forEach((s)->{
+			//	System.out.println(s);
+			//});
+			Object[] lines = (Object[]) Files.lines(Paths.get("Questions.txt")).toArray();
 			for(int i=0; i<lines.length;){
 				Question q = new Question(lines[i++].toString(), 
 						new Answers(lines[i++].toString(),
@@ -50,6 +58,13 @@ public class MainTest {
 						Difficulty.EASY, 
 						Integer.parseInt(lines[i++].toString()));
 				System.out.println(q);
+				//try {
+				//	Method m = q.getClass().getMethod("toString");
+				//	System.out.println(m.invoke(q));
+				//} catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException | InvocationTargetException e) {
+				//	// TODO Auto-generated catch block
+				//	e.printStackTrace();
+				//}
 			}
 
 		} catch (IOException e) {
@@ -63,7 +78,8 @@ public class MainTest {
 		try{
 			File file = new File("Questions.txt");
 			FileInputStream is = new FileInputStream(file);
-			BufferedReader reader = new BufferedReader(new FileReader(file));
+			FileReader fileReader = new FileReader(file);
+			BufferedReader reader = new BufferedReader(fileReader);
 			while(reader.ready()){
 				Question q = new Question(reader.readLine(), 
 						new Answers(reader.readLine(),
@@ -71,10 +87,12 @@ public class MainTest {
 								reader.readLine(),
 								reader.readLine()),
 						Difficulty.EASY, 
-						Integer.parseInt(reader.readLine()));
+						/*Integer.parseInt(reader.readLine())*/
+						new Integer(reader.readLine()));
 				System.out.println(q);
 			}
-
+			reader.close();
+			is.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

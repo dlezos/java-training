@@ -4,6 +4,8 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,13 +57,29 @@ public class MonsterEngine implements TheMonster {
 	}
 
 	public boolean loadQuestions(){
-		if(questions == null){
-			questions = new ArrayList<Question>(100);
-		}
-		for(int i=0; i<100; i++){
-			questions.add(new Question("Question "+i, new Answers("answerA", "answerB", "answerC", "answerD"), Difficulty.EASY, 1));
-		}
+		questions = readQuestionsStreams();
 		return true;
+	}
+	
+	public static List<Question> readQuestionsStreams(){
+		List<Question> result = new ArrayList<Question>(100);
+		//read file into streams
+		try{
+
+			Object[] lines = (Object[]) Files.lines(Paths.get("Questions.txt")).toArray();
+			for(int i=0; i<lines.length;){
+				result.add(new Question(lines[i++].toString(), 
+						new Answers(lines[i++].toString(),
+								    lines[i++].toString(),
+								    lines[i++].toString(),
+								    lines[i++].toString()),
+						Difficulty.EASY, 
+						Integer.parseInt(lines[i++].toString())));
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 	public boolean storeQuestions(String fileName){

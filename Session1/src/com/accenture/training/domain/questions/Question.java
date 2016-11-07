@@ -1,9 +1,11 @@
 package com.accenture.training.domain.questions;
 
+import java.io.Serializable;
+
 import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Difficulty;
 
-public class Question implements com.accenture.training.interfaces.Question {
+public class Question implements Serializable, com.accenture.training.interfaces.Question {
 
 	private Answers answers;
 	private Difficulty difficulty;

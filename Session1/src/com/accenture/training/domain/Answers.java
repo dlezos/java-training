@@ -1,8 +1,9 @@
 package com.accenture.training.domain;
 
-public class Answers {
-	
+import java.io.Serializable;
 
+public class Answers implements Serializable {
+		
 	public String answerA="";
 	public String answerB="";
 	public String answerC="";
@@ -49,11 +50,6 @@ public class Answers {
 	public String toString() {
 		return "Answers [answerA=" + answerA + ", answerB=" + answerB + ",n answerC=" + answerC + ", answerD=" + answerD
 				+ "]";
-	}
-	
-	@Override
-	public String toString() {
-		return "\nA=" + answerA + "\nB=" + answerB + "\nC=" + answerC + "\nD=" + answerD + "\n";
 	}
 }
 
