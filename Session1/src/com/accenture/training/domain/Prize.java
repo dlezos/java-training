@@ -1,24 +1,31 @@
 package com.accenture.training.domain;
 
 public enum Prize {
-	step100(100),
-	step200(200),
-	step500(500),
-	step1000(1000),
-	step2000(2000),
-	step5000(5000),
-	step10000(10000),
-	step20000(20000),
-	step50000(50000),
-	step200000(200000);
+	step0(0,0),
+	step100(1,100),
+	step200(2,200),
+	step500(3,500),
+	step1000(4,1000),
+	step2000(5,2000),
+	step5000(6,5000),
+	step10000(7,10000),
+	step20000(8,20000),
+	step50000(9,50000),
+	step200000(10,200000);
 	private int step;
+	private int value;
 	
 	public int getStep() {
 		return step;
 	}
-
-	private Prize(int step) {
-		this.step=step;
+	
+	public int getValue(){
+		return value;
 	}
 
+	private Prize(int step, int value) {
+		this.step=step;
+		this.value = value;
+	}
+	
 }

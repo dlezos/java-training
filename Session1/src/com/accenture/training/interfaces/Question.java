@@ -9,6 +9,8 @@ public interface Question {
 	public Answers getAnswerC();
 	public Answers getAnswerD();
 	
+	public String getQuestion();
+	
 	/**
 	 * Checks if given answer is the correct one
 	 * @param givenAnswer A reference to the Answer object given

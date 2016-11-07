@@ -6,6 +6,7 @@
 package com.accenture.training.interfaces;
 
 import com.accenture.training.domain.Assists;
+import com.accenture.training.domain.Game;
 
 /**
  *
@@ -29,7 +30,7 @@ public interface TheMonster {
     
     Integer resetScore(int score, boolean reset);
     
-    void startGame(String playerName);
+    public Game startGame(String playerName);
     
     int startGame(int score, String playerName, int numberOfAssist, boolean hasAssist);
     
