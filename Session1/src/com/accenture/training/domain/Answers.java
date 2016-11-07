@@ -1,6 +1,8 @@
 package com.accenture.training.domain;
 
 public class Answers {
+	
+
 	public String answerA="";
 	public String answerB="";
 	public String answerC="";
@@ -43,5 +45,10 @@ public class Answers {
 		this.answerD = answerD;
 	}
 	
+	@Override
+	public String toString() {
+		return "Answers [answerA=" + answerA + ", answerB=" + answerB + ", answerC=" + answerC + ", answerD=" + answerD
+				+ "]";
+	}
 }
 
