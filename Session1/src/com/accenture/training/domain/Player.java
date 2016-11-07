@@ -6,11 +6,11 @@ public class Player extends Object {
 	protected String lastName = null;
 	
 	public Player(String firstName, String lastName){
-		firstName = new String(firstName);
-		lastName = new String(lastName);
+		this.firstName = new String(firstName);
+		this.lastName = new String(lastName);
 	}
 	
-	public String getfisrtName(){
+	public String getfirstName(){
 		return firstName;
 	}
 	
