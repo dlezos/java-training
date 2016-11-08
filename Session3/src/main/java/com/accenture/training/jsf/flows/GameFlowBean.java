@@ -44,12 +44,14 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.ejb.TransactionAttributeType;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 import com.accenture.training.beans.Test;
 import com.accenture.training.beans.User;
@@ -119,12 +121,14 @@ public class GameFlowBean implements Serializable {
         return "/return";
     }
     
+    @Transactional(value=Transactional.TxType.REQUIRES_NEW)
     public String checkAnswer(){
     	System.out.println("Answer: "+answer);
     	boolean result = engine.giveAnswer(currentGame, answer);
     	if(result == false){
     		database.saveNewEntity(currentGame.player.getFirstName()+"-"+currentGame.prize.getValue());
     		database.saveNewGame(currentGame);
+    		
     	}
     	return result?"correct":"error";
     }

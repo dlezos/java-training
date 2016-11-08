@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 
 import com.accenture.training.domain.Game;
 import com.accenture.training.domain.TestEntity;
@@ -44,7 +45,9 @@ public class DatabaseService {
     }
 
     public List<Game> getAllGames() {
-        return entityManager.createQuery("SELECT _game FROM Game _game", Game.class).getResultList();
+    	TypedQuery<Game> query = entityManager.createQuery("SELECT _game FROM Game _game", Game.class);
+    	query.setMaxResults(10);
+        return query.getResultList();
     }
 
 }
