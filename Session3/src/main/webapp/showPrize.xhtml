@@ -11,6 +11,7 @@
             <h1>Show Prize</h1>
             <h:form>
             <p><h:commandButton id="answer" value="New Game" action="#{gameFlowBean.startGame}" /></p>
+            <h2>You've won #{gameFlowBean.winnings}</h2>
             <p><a href="#{request.contextPath}">Home</a></p>
             </h:form>
     </body>

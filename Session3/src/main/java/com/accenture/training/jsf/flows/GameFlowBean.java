@@ -136,7 +136,7 @@ public class GameFlowBean implements Serializable {
 	}
 	
 	public Integer getWinnings(){
-		return 100;
+		return this.currentGame.getPrize().getValue();
 	}
 
 	public User getUser() {

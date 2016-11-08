@@ -10,6 +10,8 @@ public class Game {
 	
 	public Player player;
 	public Prize prize;
+
+
 	int currentQuestion;
 	Assists assists;
 	List<Question> questions = null;
@@ -62,5 +64,9 @@ public class Game {
 		}
 		this.currentQuestion++;
 		this.prize = Prize.getPrize(prize.getStep()+1);
+	}
+	
+	public Prize getPrize() {
+		return prize;
 	}
 }
