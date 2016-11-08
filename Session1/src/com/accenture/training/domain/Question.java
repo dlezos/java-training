@@ -1,4 +1,4 @@
-package com.accenture.training.domain.questions;
+package com.accenture.training.domain;
 
 import java.io.Serializable;
 

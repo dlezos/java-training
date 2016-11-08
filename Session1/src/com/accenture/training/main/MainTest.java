@@ -13,8 +13,7 @@ import java.util.stream.Stream;
 
 import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Difficulty;
-import com.accenture.training.domain.Game;
-import com.accenture.training.domain.questions.Question;
+import com.accenture.training.domain.Question;
 
 public class MainTest {
 

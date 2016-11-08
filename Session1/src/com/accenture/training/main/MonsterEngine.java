@@ -15,7 +15,7 @@ import com.accenture.training.domain.Difficulty;
 import com.accenture.training.domain.Game;
 import com.accenture.training.domain.Player;
 import com.accenture.training.domain.Prize;
-import com.accenture.training.domain.questions.Question;
+import com.accenture.training.domain.Question;
 import com.accenture.training.interfaces.TheMonster;
 
 public class MonsterEngine implements TheMonster {
