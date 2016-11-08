@@ -9,6 +9,9 @@
     </head>
     <body bgcolor="white">
             <h1>Show Prize</h1>
-            <p>Question: #{gameFlowBean.question}</p>
+            <h:form>
+            <p><h:commandButton id="answer" value="New Game" action="#{gameFlowBean.startGame}" /></p>
+            <p><a href="#{request.contextPath}">Home</a></p>
+            </h:form>
     </body>
 </html>

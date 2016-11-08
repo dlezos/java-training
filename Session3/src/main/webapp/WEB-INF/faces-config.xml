@@ -24,4 +24,23 @@
             <to-view-id>/showPrize.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/showResult.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{gameFlowBean.nextQuestion}</from-action>
+            <to-view-id>/gameFlow.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-action>#{gameFlowBean.endGame}</from-action>
+            <to-view-id>/showPrize.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/showPrize.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{gameFlowBean.startGame}</from-action>
+            <to-view-id>/gameFlow.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>    
+    
 </faces-config>

@@ -53,6 +53,9 @@ import javax.inject.Named;
 
 import com.accenture.training.beans.Test;
 import com.accenture.training.beans.User;
+import com.accenture.training.domain.Answers;
+import com.accenture.training.domain.Game;
+import com.accenture.training.main.MonsterEngine;
 
 @ManagedBean
 @SessionScoped
@@ -60,33 +63,50 @@ import com.accenture.training.beans.User;
 //@ApplicationScoped
 public class GameFlowBean implements Serializable {
 
+	//private String name;
+	private User user = new User();
+
+	Integer answer;
+	
+	@EJB
+	private Test test;
+	
+	private Game currentGame;
+	
+	private MonsterEngine engine = new MonsterEngine();
+	
 	public GameFlowBean(){
 		System.out.println("Creating GameFlowBean");
 	}
 	
 	public String startGame(){
-		return "OK";
-	}
-	
-	private String name;
-
-	public String getName() {
-		System.out.println("GetName:"+name);
-		return name;
+		currentGame = engine.startGame(user.getName());
+		return currentGame!=null?"OK":"error";
 	}
 
-	public void setName(String name) {
-		System.out.println("SetName:"+name);
-		this.name = name;
-	}
+//	public String getName() {
+//		System.out.println("GetName:"+name);
+//		return name;
+//	}
+//
+//	public void setName(String name) {
+//		System.out.println("SetName:"+name);
+//		this.name = name;
+//	}
 
 	public String getQuestion(){
-    	return "The Question";
-//    	return test.getQuestion();
+		return currentGame.getCurrentQuestion().getQuestion();
+    	//return "The Question";
+    	//return test.getQuestion();
     }
     
     public List<String> getAnswers(){
-    	return Arrays.asList("Answer1", "Answer2", "Answer3", "Answer4");
+    	Answers answers = currentGame.getCurrentQuestion().getAnswers();
+    	return Arrays.asList(
+    			answers.getAnswerA(), 
+    			answers.getAnswerB(),
+    			answers.getAnswerC(),
+    			answers.getAnswerD());
     }
     
     public String getReturnValue() {
@@ -94,7 +114,36 @@ public class GameFlowBean implements Serializable {
     }
     
     public String checkAnswer(){
-    	//return "showResult";
-    	return "error";
+    	System.out.println("Answer: "+answer);
+    	return engine.giveAnswer(currentGame, answer)?"correct":"error";
     }
+    
+    public String nextQuestion(){
+    	return "OK";
+    }
+    
+    public String endGame(){
+    	return "OK";
+    }
+
+	public Integer getAnswer() {
+		return answer;
+	}
+
+	public void setAnswer(Integer answer) {
+		this.answer = answer;
+	}
+	
+	public Integer getWinnings(){
+		return 100;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+     
 }

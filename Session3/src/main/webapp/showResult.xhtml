@@ -8,7 +8,11 @@
         <title>Show Result</title>
     </head>
     <body bgcolor="white">
-            <h1>Show Result</h1>
-            <p>Question: #{gameFlowBean.question}</p>
+            <h1>Correct!</h1>
+            <p>Current Winnings: #{gameFlowBean.winnings}</p>
+            <h:form>
+            <p><h:commandButton id="next" value="Next Question" action="#{gameFlowBean.nextQuestion}" /></p>
+            <p><h:commandButton id="stop" value="Stop Here" action="#{gameFlowBean.endGame}" /></p>
+            </h:form>
     </body>
 </html>
