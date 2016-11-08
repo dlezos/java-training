@@ -44,26 +44,45 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.ejb.EJB;
+import javax.faces.bean.ApplicationScoped;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.flow.FlowScoped;
 import javax.inject.Named;
 
 import com.accenture.training.beans.Test;
+import com.accenture.training.beans.User;
 
-
-@Named
-@FlowScoped("gameFlow")
+@ManagedBean
+@SessionScoped
+//@RequestScoped
+//@ApplicationScoped
 public class GameFlowBean implements Serializable {
 
-	@EJB
-	Test test;
+	public GameFlowBean(){
+		System.out.println("Creating GameFlowBean");
+	}
 	
-    public String getName() {
-        return this.getClass().getSimpleName();
-    }
+	public String startGame(){
+		return "OK";
+	}
+	
+	private String name;
 
-    public String getQuestion(){
-    	//return "The Question";
-    	return test.getQuestion();
+	public String getName() {
+		System.out.println("GetName:"+name);
+		return name;
+	}
+
+	public void setName(String name) {
+		System.out.println("SetName:"+name);
+		this.name = name;
+	}
+
+	public String getQuestion(){
+    	return "The Question";
+//    	return test.getQuestion();
     }
     
     public List<String> getAnswers(){
@@ -76,6 +95,6 @@ public class GameFlowBean implements Serializable {
     
     public String checkAnswer(){
     	//return "showResult";
-    	return "showPrize";
+    	return "error";
     }
 }
