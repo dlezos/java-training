@@ -48,7 +48,7 @@ public class MonsterEngine /*implements TheMonster*/ {
 		Player player = new Player(playerName, "Doe");
 		List<Question> questions = new ArrayList<Question>(10);
 		for(int i=0; i<10; i++){
-			questions.add(this.questions.get(i));
+			questions.add((Question)this.questions.get(i).clone());
 		}
 		return new Game(player, questions);
 	}

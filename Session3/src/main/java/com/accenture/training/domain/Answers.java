@@ -1,14 +1,27 @@
 package com.accenture.training.domain;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
 
-public class Answers implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
+public class Answers implements Serializable, Cloneable {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
 		
 	public String answerA="";
 	public String answerB="";
 	public String answerC="";
 	public String answerD="";
 
+	public Answers(){
+	}
+	
 	public Answers(String answerA, String answerB, String answerC, String answerD){
 		this.answerA = answerA;
 		this.answerB = answerB;
@@ -50,6 +63,19 @@ public class Answers implements Serializable {
 	public String toString() {
 		return "Answers [answerA=" + answerA + ", answerB=" + answerB + ",n answerC=" + answerC + ", answerD=" + answerD
 				+ "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	@Override
+	public Object clone(){
+		return new Answers(answerA, answerB, answerC, answerD);
 	}
 }
 

@@ -55,7 +55,9 @@ import com.accenture.training.beans.Test;
 import com.accenture.training.beans.User;
 import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Game;
+import com.accenture.training.domain.TestEntity;
 import com.accenture.training.main.MonsterEngine;
+import com.accenture.training.persistance.DatabaseService;
 
 @ManagedBean
 @SessionScoped
@@ -75,6 +77,9 @@ public class GameFlowBean implements Serializable {
 	
 	@EJB
 	private MonsterEngine engine;// = new MonsterEngine();
+	
+	@EJB
+	private DatabaseService database;
 	
 	public GameFlowBean(){
 		System.out.println("Creating GameFlowBean");
@@ -116,7 +121,12 @@ public class GameFlowBean implements Serializable {
     
     public String checkAnswer(){
     	System.out.println("Answer: "+answer);
-    	return engine.giveAnswer(currentGame, answer)?"correct":"error";
+    	boolean result = engine.giveAnswer(currentGame, answer);
+    	if(result == false){
+    		database.saveNewEntity(currentGame.player.getFirstName()+"-"+currentGame.prize.getValue());
+    		database.saveNewGame(currentGame);
+    	}
+    	return result?"correct":"error";
     }
     
     public String nextQuestion(){
@@ -147,4 +157,11 @@ public class GameFlowBean implements Serializable {
 		this.user = user;
 	}
      
+	public List<TestEntity> getAllTests(){
+		return database.getAllEntities();
+	}
+	
+	public List<Game> getAllGames(){
+		return database.getAllGames();
+	}
 }

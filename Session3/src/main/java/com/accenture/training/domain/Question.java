@@ -1,16 +1,34 @@
 package com.accenture.training.domain;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.io.Serializable;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 import com.accenture.training.domain.Answers;
 import com.accenture.training.domain.Difficulty;
 
-public class Question implements Serializable, com.accenture.training.interfaces.Question {
+@Entity
+public class Question implements Serializable, Cloneable, com.accenture.training.interfaces.Question {
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    private Long id;
 
+    @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	private Answers answers;
 	private Difficulty difficulty;
 	private String question;
 	private Integer correctAnswer;
+	
+	public Question(){
+		
+	}
 	
 	public int getCorrectAnswer() {
 		return correctAnswer;
@@ -56,5 +74,29 @@ public class Question implements Serializable, com.accenture.training.interfaces
 //				+ ", correctAnswer=" + correctAnswer + "]";
 		return "Question: " + question + "\nAnswers:" + answers;
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setAnswers(Answers answers) {
+		this.answers = answers;
+	}
+
+	public void setQuestion(String question) {
+		this.question = question;
+	}
 	
+	public Object clone(){
+		Question result = new Question();
+		result.setAnswers((Answers)this.getAnswers().clone());
+		result.setCorrectAnswer(this.getCorrectAnswer());
+		result.setDifficulty(this.getDifficulty());
+		result.setQuestion(this.getQuestion());
+		return result;
+	}
 }

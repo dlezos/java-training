@@ -13,5 +13,17 @@
             <p><h:commandButton id="answer" value="New Game" action="#{gameFlowBean.startGame}" /></p>
             <p><a href="#{request.contextPath}">Home</a></p>
             </h:form>
+            <h:dataTable value="#{gameFlowBean.allTests}" var="test">
+                <h:column>#{test.id}</h:column>
+                <h:column>#{test.value}</h:column>
+            </h:dataTable>
+            <br/>
+            <h:dataTable value="#{gameFlowBean.allGames}" var="game">
+                <h:column>#{game.id}</h:column>
+                <h:column>#{game.prize}</h:column>
+                <h:column>#{game.player.firstName}</h:column>
+                <h:column>#{game.player.lastName}</h:column>
+            </h:dataTable>
+            
     </body>
 </html>

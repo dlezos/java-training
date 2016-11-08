@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <head>
+        <title>Show Question</title>
+    </head>
+    <body bgcolor="white">
+        <h:form prependId="false">
+            <h1>Start Game</h1>
+            <p>Are you ready #{gameFlowBean.user.name}?</p>
+            <p><h:commandButton id="answer" value="Start" action="#{gameFlowBean.startGame}" /></p>
+
+        </h:form>
+    </body>
+</html>
