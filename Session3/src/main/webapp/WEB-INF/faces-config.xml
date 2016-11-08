@@ -12,6 +12,13 @@
         </navigation-case>
     </navigation-rule>    
     <navigation-rule>
+        <from-view-id>/start.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{gameFlowBean.startGame}</from-action>
+            <to-view-id>/gameFlow.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>    
+    <navigation-rule>
         <from-view-id>/gameFlow.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{gameFlowBean.checkAnswer}</from-action>

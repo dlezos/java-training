@@ -46,9 +46,9 @@ public class MonsterEngine implements TheMonster {
 	public Game startGame(String playerName) {
 		Player player = new Player(playerName, "Doe");
 		List<Question> questions = new ArrayList<Question>(10);
-		/*for(int i=0; i<10; i++){
+		for(int i=0; i<10; i++){
 			questions.add(this.questions.get(i));
-		}*/
+		}
 		return new Game(player, questions);
 	}
 	
