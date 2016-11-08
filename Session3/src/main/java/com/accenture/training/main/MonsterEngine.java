@@ -25,7 +25,8 @@ import com.accenture.training.domain.Question;
 import com.accenture.training.interfaces.TheMonster;
 
 @Stateful
-public class MonsterEngine implements TheMonster {
+//@Stateless
+public class MonsterEngine /*implements TheMonster*/ {
 	public String username;
 	public String password;
 	
@@ -42,7 +43,7 @@ public class MonsterEngine implements TheMonster {
 	}
 
 
-	@Override
+	//@Override
 	public Game startGame(String playerName) {
 		Player player = new Player(playerName, "Doe");
 		List<Question> questions = new ArrayList<Question>(10);
@@ -152,60 +153,60 @@ public class MonsterEngine implements TheMonster {
 		}
 		return true;		
 	}
-	@Override
-	public Boolean loginUser(String userName, String passWord) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Boolean resetPassword(String userName, String oldPassword, String newPassword) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void resetQuestions() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Integer resetScore(int score, boolean reset) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public int startGame(int score, String playerName, int numberOfAssist, boolean hasAssist) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int endGame(int score, String playerName, int numberOfAssist, boolean hasAssist) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int selectQuestion(int noQuestions, String questionCategory, String question, int scoreOfQuestion,
-			int questionNumber) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int displayAssistance(int noAssists, int currentNoOfAssist, boolean hasAssist, Assists assistType) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public int calculateScore(int currentScore, int questionNumber) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+//	@Override
+//	public Boolean loginUser(String userName, String passWord) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public Boolean resetPassword(String userName, String oldPassword, String newPassword) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public void resetQuestions() {
+//		// TODO Auto-generated method stub
+//		
+//	}
+//
+//	@Override
+//	public Integer resetScore(int score, boolean reset) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	@Override
+//	public int startGame(int score, String playerName, int numberOfAssist, boolean hasAssist) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int endGame(int score, String playerName, int numberOfAssist, boolean hasAssist) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int selectQuestion(int noQuestions, String questionCategory, String question, int scoreOfQuestion,
+//			int questionNumber) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int displayAssistance(int noAssists, int currentNoOfAssist, boolean hasAssist, Assists assistType) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
+//
+//	@Override
+//	public int calculateScore(int currentScore, int questionNumber) {
+//		// TODO Auto-generated method stub
+//		return 0;
+//	}
 	
 
 	public void UseAssist(Assists assist, Answers answer){

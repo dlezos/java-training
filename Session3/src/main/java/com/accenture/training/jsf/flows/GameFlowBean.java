@@ -73,7 +73,8 @@ public class GameFlowBean implements Serializable {
 	
 	private Game currentGame;
 	
-	private MonsterEngine engine = new MonsterEngine();
+	@EJB
+	private MonsterEngine engine;// = new MonsterEngine();
 	
 	public GameFlowBean(){
 		System.out.println("Creating GameFlowBean");
