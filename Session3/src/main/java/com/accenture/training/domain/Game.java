@@ -26,6 +26,8 @@ public class Game {
     @OneToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 	public Player player;
 	public Prize prize;
+
+
 	int currentQuestion;
 	Assists assists;
 	@OneToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
