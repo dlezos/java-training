@@ -17,7 +17,7 @@ import com.accenture.training.domain.Question;
 
 public class MainTest {
 
-	public static void main(String[] args){
+	public /*static*/ void main(String[] args){
 //		MonsterEngine engine = new MonsterEngine();
 //		engine.loadQuestions();
 //		Game game = engine.startGame("Dimitris");
