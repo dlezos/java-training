@@ -12,6 +12,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Component;
 
 import com.accenture.training.domain.Answers;
@@ -30,8 +32,12 @@ public class MonsterEngine {
 	protected List<Question> questions; 
 	
 	public MonsterEngine(){
-		loadQuestions();
 	}
+	
+    @PostConstruct
+    public void initializeEngine(){
+		//loadQuestions();
+    }
 	
 	public String registerUser(String userName, String passWord) {
 		this.username = userName;
