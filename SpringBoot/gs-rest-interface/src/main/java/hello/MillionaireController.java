@@ -1,6 +1,8 @@
 package hello;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.constraints.AssertTrue;
@@ -95,6 +97,13 @@ public class MillionaireController {
 	public Boolean checkAnswer(@PathVariable Long id, @RequestParam Long answer){
 		Game game = currentGames.get(id);
 		return engine.giveAnswer(game, answer.intValue());
+	}
+	
+	@GetMapping("/games")
+	public List<Game> getAllGames(){
+		ArrayList<Game> result = new ArrayList<Game>();
+		result.addAll(currentGames.values());
+		return result;
 	}
 
 }

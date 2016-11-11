@@ -1,0 +1,61 @@
+{
+  "scripts": {
+    "build": "jspm bundle-sfx --minify src/index",
+    "dev": "live-server --entry-file=index.html",
+    "lint": "eslint  ./src",
+    "test": "mocha --compilers js:babel-register --require ./test/testHelper.js --recursive",
+    "test:watch": "npm test -- --watch"
+  },
+  "jspm": {
+    "dependencies": {
+      "babel-polyfill": "npm:babel-polyfill@^6.3.14",
+      "basscss": "npm:basscss@^7.1.0",
+      "classnames": "npm:classnames@^2.2.3",
+      "immutable": "npm:immutable@^3.7.6",
+      "invariant": "npm:invariant@^2.2.0",
+      "parse": "npm:parse@^1.7.0",
+      "react": "npm:react@^0.14.6",
+      "react-dom": "npm:react-dom@^0.14.6",
+      "react-redux": "npm:react-redux@^4.1.2",
+      "react-router": "npm:react-router@^2.0.0-rc5",
+      "react-router-redux": "npm:react-router-redux@^2.1.0",
+      "redux": "npm:redux@^3.1.5",
+      "redux-form": "npm:redux-form@^4.1.6",
+      "redux-localstorage": "npm:redux-localstorage@^0.4.0",
+      "redux-logger": "npm:redux-logger@^2.4.0",
+      "redux-saga": "npm:redux-saga@^0.6.0",
+      "redux-thunk": "npm:redux-thunk@^1.0.3"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  },
+  "devDependencies": {
+    "babel-eslint": "^5.0.0-beta6",
+    "babel-preset-es2015": "^6.6.0",
+    "babel-preset-react": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.6.5",
+    "chai": "^3.5.0",
+    "enzyme": "^2.0.0",
+    "eslint": "^1.10.3",
+    "eslint-plugin-react": "^3.16.1",
+    "immutable": "^3.7.6",
+    "jsdom": "^8.1.0",
+    "jspm": "^0.16.24",
+    "live-server": "^0.9.1",
+    "mock-localstorage": "^0.1.3",
+    "nock": "^7.2.2",
+    "parse": "^1.7.1",
+    "react": "^0.14.7",
+    "react-addons-test-utils": "^0.14.7",
+    "react-dom": "^0.14.7",
+    "react-redux": "^4.4.0",
+    "redux": "^3.3.1",
+    "redux-mock-store": "0.0.6",
+    "redux-thunk": "^2.0.1",
+    "sinon": "^1.17.3"
+  }
+}
